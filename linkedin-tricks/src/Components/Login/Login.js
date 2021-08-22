@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { APICall } from "../xshared/APICall";
+import { LOGIN } from "../xshared/Routes";
 import User from "./LoginChecker";
 
 export const Login = () => {
@@ -28,21 +30,21 @@ export const Login = () => {
 
   const loginUser = (e) => {
     e.preventDefault();
-    fetch("/login", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+    APICall.post(
+      LOGIN,
+      {
         username: e.target.username.value,
         password: e.target.password.value,
-      }),
-    })
-      .then((x) => x.json())
-      .then((x) => {
-        User.setToken(x.data.token);
-        setResult(x);
-      });
+      },
+      (err, res) => {
+        if (res.result_code) {
+          User.setToken(res.data.token);
+          setResult(res);
+        } else {
+          setResult(res);
+        }
+      }
+    );
   };
 
   return loading ? (

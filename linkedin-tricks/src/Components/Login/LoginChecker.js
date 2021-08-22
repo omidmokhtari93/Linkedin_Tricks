@@ -1,9 +1,11 @@
-const key = "linkedin_tricks";
+import { CHECK_LOGIN } from "../xshared/Routes";
+
+const local_storage_key = "linkedin_tricks";
 
 export default class User {
   static async checkLogin() {
     const token = this.getToken();
-    const response = await fetch("/check_login", {
+    const response = await fetch(CHECK_LOGIN, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -18,14 +20,14 @@ export default class User {
 
   static setToken(token) {
     if (token) {
-      localStorage.setItem(key, window.btoa(token));
+      localStorage.setItem(local_storage_key, window.btoa(token));
       return true;
     }
     return false;
   }
 
   static getToken() {
-    const localToken = localStorage.getItem(key);
+    const localToken = localStorage.getItem(local_storage_key);
     if (localToken) {
       return window.atob(localToken);
     }
@@ -33,7 +35,7 @@ export default class User {
   }
 
   static removeToken() {
-    localStorage.removeItem(key);
+    localStorage.removeItem(local_storage_key);
     return true;
   }
 }

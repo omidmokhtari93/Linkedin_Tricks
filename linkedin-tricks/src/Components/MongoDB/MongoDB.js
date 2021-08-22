@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { APICall } from "../xshared/APICall";
+import { SET_USER } from "../xshared/Routes";
 
 export const MongoDB = () => {
   const [age, setAge] = useState("28");
@@ -22,24 +24,22 @@ export const MongoDB = () => {
 
   const submitForm = (e) => {
     e.preventDefault();
-    fetch("/set_user", {
-      method: "post",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify({
+    APICall.post(
+      SET_USER,
+      {
         name: e.target.name.value,
         age: e.target.age.value,
-      }),
-    })
-      .then((x) => x.json())
-      .then((x) => {
-        if (x.result_code) {
+      },
+      (err, res) => {
+        if (res.result_code) {
           alert("saved");
           e.target.name.value = "";
           e.target.age.value = "";
         } else {
-          alert(x.result_message);
+          alert(res.result_message);
         }
-      });
+      }
+    );
   };
 
   return (
