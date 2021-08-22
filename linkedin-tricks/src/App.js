@@ -7,6 +7,7 @@ import { Capitalize } from "./Components/Capitalize/Capitalize";
 import { ConnectionChecking } from "./Components/ConnetionChecking/ConnectionChecking";
 import { ConvertToInt } from "./Components/ConvertToInt/ConvertToInt";
 import { DistructorNestedObjects } from "./Components/DistructorNestedObjects/DistructorNestedObjects";
+import { HOCExample } from "./Components/HigherOrderComponent/Example";
 import { LinkSpeed } from "./Components/LinkSpeed/LinkSpeed";
 import { Login } from "./Components/Login/Login";
 import { MinAndMax } from "./Components/MinAndMax/MinAndMax";
@@ -16,6 +17,7 @@ import { PreventRightClick } from "./Components/PreventRightClick/PreventRightCl
 import { RemoveObjectKey } from "./Components/RemoveObjectKey/RemoveObjectKey";
 import { ReplaceAll } from "./Components/ReplaceAll/ReplaceAll";
 import { ResizeObserverContainer } from "./Components/ResizeObserver/ResizeObserver";
+import { SimpleSwitch } from "./Components/SimpleSwitch/SimpleSwitch";
 import { Socket } from "./Components/Socket/Socket";
 import { UglyNumber } from "./Components/UglyNumber/UglyNumber";
 
@@ -78,6 +80,12 @@ function App() {
           </div>
           <div className="col-12 col-md-6 col-lg-4">
             <Login />
+          </div>
+          <div className="col-12 col-md-6 col-lg-4">
+            <SimpleSwitch />
+          </div>
+          <div className="col-12 col-md-6 col-lg-4">
+            <HOCExample />
           </div>
         </div>
       </div>
