@@ -1,0 +1,10 @@
+@import "https://fonts.googleapis.com/css?family=Montserrat";
+
+body {
+  font-family: Montserrat;
+}
+
+.row [class*="col-"] {
+  border: 1px solid rgb(214, 214, 214);
+  padding: 20px;
+}
