@@ -22,6 +22,7 @@ import { SimpleSwitch } from "./Components/SimpleSwitch/SimpleSwitch";
 import { Socket } from "./Components/Socket/Socket";
 import { UglyNumber } from "./Components/UglyNumber/UglyNumber";
 import { UserLocation } from "./Components/UserLocation/UserLocation";
+import { WebCam } from "./Components/WebCam/WebCam";
 
 function App() {
   return (
@@ -94,6 +95,9 @@ function App() {
           </div>
           <div className="col-12 col-md-6 col-lg-4">
             <GoogleMap />
+          </div>
+          <div className="col-12 col-md-6 col-lg-4">
+            <WebCam />
           </div>
         </div>
         <div className="text-center pt-4">developed by ❤️</div>
