@@ -7,6 +7,7 @@ import { Capitalize } from "./Components/Capitalize/Capitalize";
 import { ConnectionChecking } from "./Components/ConnetionChecking/ConnectionChecking";
 import { ConvertToInt } from "./Components/ConvertToInt/ConvertToInt";
 import { DistructorNestedObjects } from "./Components/DistructorNestedObjects/DistructorNestedObjects";
+import { GoogleMap } from "./Components/GoogleMap/GoogleMap";
 import { HOCExample } from "./Components/HigherOrderComponent/Example";
 import { LinkSpeed } from "./Components/LinkSpeed/LinkSpeed";
 import { Login } from "./Components/Login/Login";
@@ -20,13 +21,14 @@ import { ResizeObserverContainer } from "./Components/ResizeObserver/ResizeObser
 import { SimpleSwitch } from "./Components/SimpleSwitch/SimpleSwitch";
 import { Socket } from "./Components/Socket/Socket";
 import { UglyNumber } from "./Components/UglyNumber/UglyNumber";
+import { UserLocation } from "./Components/UserLocation/UserLocation";
 
 function App() {
   return (
     <React.Fragment>
       <div className="p-4">All Linkedin Javascript Tricks</div>
       <div className="p-4 bg-light">
-        <div className="row">
+        <div className="row m-0">
           <div className="col-12 col-md-6 col-lg-4">
             <ConvertToInt />
           </div>
@@ -87,7 +89,14 @@ function App() {
           <div className="col-12 col-md-6 col-lg-4">
             <HOCExample />
           </div>
+          <div className="col-12 col-md-6 col-lg-4">
+            <UserLocation />
+          </div>
+          <div className="col-12 col-md-6 col-lg-4">
+            <GoogleMap />
+          </div>
         </div>
+        <div className="text-center pt-4">developed by ❤️</div>
       </div>
     </React.Fragment>
   );

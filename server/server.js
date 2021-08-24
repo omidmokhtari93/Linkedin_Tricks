@@ -114,3 +114,15 @@ app.post("/countries", ({ body: { country } }, res) => {
     }
   );
 });
+
+////get user location
+app.get("/get_location", (body, res) => {
+  request(
+    {
+      uri: "https://location.services.mozilla.com/v1/geolocate?key=test",
+    },
+    function (err, response, body) {
+      res.send(body);
+    }
+  );
+});
