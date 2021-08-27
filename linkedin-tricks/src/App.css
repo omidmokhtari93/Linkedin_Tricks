@@ -4,7 +4,7 @@ body {
   font-family: Montserrat;
 }
 
-.row [class*="col-"] {
+.row [class*="col-"].bordered {
   border: 1px solid rgb(214, 214, 214);
   padding: 20px;
 }

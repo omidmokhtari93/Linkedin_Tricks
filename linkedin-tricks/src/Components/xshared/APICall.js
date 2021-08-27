@@ -5,7 +5,7 @@ export class APICall {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(body),
+      ...(body ? { body: JSON.stringify(body) } : null),
     })
       .then((x) => x.json())
       .then((x) => callBack(null, x))

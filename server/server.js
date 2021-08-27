@@ -2,6 +2,7 @@ const Response = require("./ErrorHandling");
 const express = require("express");
 const request = require("request");
 const bycrypt = require("bcrypt");
+const ApiRequest = require("./functions");
 const app = express();
 app.use(express.json());
 app.use(
@@ -125,4 +126,31 @@ app.get("/get_location", (body, res) => {
       res.send(body);
     }
   );
+});
+
+///// get covid 19 cases
+
+app.post("/get_cases", async ({ body: { days } }, res) => {
+  console.log(days);
+  const all = await ApiRequest.do("https://disease.sh/v3/covid-19/all");
+  const countries = await ApiRequest.do(
+    "https://disease.sh/v3/covid-19/countries"
+  );
+  const lastdays = await ApiRequest.do(
+    "https://disease.sh/v3/covid-19/historical/all?lastdays=" + days
+  );
+  if ((all && countries, lastdays)) {
+    res.send(
+      Response.success(
+        {
+          all: JSON.parse(all),
+          countries: JSON.parse(countries),
+          lastdays: JSON.parse(lastdays),
+        },
+        "done"
+      )
+    );
+  } else {
+    res.send(Response.error("error in api calls"));
+  }
 });
