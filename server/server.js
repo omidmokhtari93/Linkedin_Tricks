@@ -12,6 +12,13 @@ app.use(
 );
 
 const MongoClient = require("mongodb").MongoClient;
+const {
+  REST_COUTRIES_API,
+  MOZILLA_LOCATION_API,
+  COVID_19_ALL_API,
+  COVID_19_ALL_COUNTRIES_API,
+  COVID_19_LAST_DAYS_API,
+} = require("./routes");
 const url = "mongodb://127.0.0.1:27017";
 const client = new MongoClient(url);
 
@@ -108,7 +115,7 @@ app.post("/set_user", async ({ body: { name, age } }, res) => {
 app.post("/countries", ({ body: { country } }, res) => {
   request(
     {
-      uri: "https://restcountries.eu/rest/v2/name/" + country,
+      uri: REST_COUTRIES_API + country,
     },
     function (error, response, body) {
       res.send(body);
@@ -120,7 +127,7 @@ app.post("/countries", ({ body: { country } }, res) => {
 app.get("/get_location", (body, res) => {
   request(
     {
-      uri: "https://location.services.mozilla.com/v1/geolocate?key=test",
+      uri: MOZILLA_LOCATION_API,
     },
     function (err, response, body) {
       res.send(body);
@@ -131,14 +138,9 @@ app.get("/get_location", (body, res) => {
 ///// get covid 19 cases
 
 app.post("/get_cases", async ({ body: { days } }, res) => {
-  console.log(days);
-  const all = await ApiRequest.do("https://disease.sh/v3/covid-19/all");
-  const countries = await ApiRequest.do(
-    "https://disease.sh/v3/covid-19/countries"
-  );
-  const lastdays = await ApiRequest.do(
-    "https://disease.sh/v3/covid-19/historical/all?lastdays=" + days
-  );
+  const all = await ApiRequest.do(COVID_19_ALL_API);
+  const countries = await ApiRequest.do(COVID_19_ALL_COUNTRIES_API);
+  const lastdays = await ApiRequest.do(COVID_19_LAST_DAYS_API + days);
   if ((all && countries, lastdays)) {
     res.send(
       Response.success(
