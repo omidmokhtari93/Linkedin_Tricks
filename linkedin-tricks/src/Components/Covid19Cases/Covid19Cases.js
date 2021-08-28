@@ -51,7 +51,7 @@ export const Covid19Cases = () => {
                     border: loop % 2 ? "" : "1px solid #dcdcdc",
                   }}
                   key={x}
-                  className="col-3 d-flex justify-content-between align-items-center pb-1 pt-1"
+                  className="col-12 col-md-6 col-lg-3 d-flex justify-content-between align-items-center pb-1 pt-1"
                 >
                   <span>{capitalize(x)} : </span>
                   <span className="badge rounded-pill bg-primary d-flex align-items-center">
@@ -92,7 +92,7 @@ export const Covid19Cases = () => {
                     border: loop % 2 ? "" : "1px solid #dcdcdc",
                   }}
                   key={x}
-                  className="col-3 d-flex justify-content-between align-items-center pb-1 pt-1"
+                  className="col-12 col-md-6 col-lg-3 d-flex justify-content-between align-items-center pb-1 pt-1"
                 >
                   <span>{capitalize(x)} : </span>
                   <span className="badge rounded-pill bg-primary d-flex align-items-center">
