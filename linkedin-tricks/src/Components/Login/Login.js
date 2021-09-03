@@ -21,10 +21,11 @@ export const Login = () => {
 
   const logout = () => {
     setLoading(true);
-    User.removeToken();
-    User.checkLogin().then((x) => {
-      setLoading(false);
-      setResult(x);
+    User.logout().then((res) => {
+      if (res.result_code) {
+        setLoading(false);
+        setResult(res);
+      }
     });
   };
 
@@ -38,7 +39,6 @@ export const Login = () => {
       },
       (err, res) => {
         if (res.result_code) {
-          User.setToken(res.data.token);
           setResult(res);
         } else {
           setResult(res);

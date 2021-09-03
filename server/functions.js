@@ -1,7 +1,7 @@
 const request = require("request");
 
-module.exports = class ApiRequest {
-  static do(url) {
+exports.apiRequest = {
+  send: (url) => {
     return new Promise((resolve, reject) => {
       request(
         {
@@ -17,5 +17,18 @@ module.exports = class ApiRequest {
         }
       );
     });
-  }
+  },
+};
+
+exports.cookieParser = function (cookies) {
+  let list = {};
+  cookies &&
+    cookies
+      .replace(/\s/g, "")
+      .split(";")
+      .forEach(function (cookie) {
+        let splitted = cookie.split("=");
+        list[splitted[0]] = splitted[1];
+      });
+  return list;
 };

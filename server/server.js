@@ -2,7 +2,7 @@ const Response = require("./ErrorHandling");
 const express = require("express");
 const request = require("request");
 const bycrypt = require("bcrypt");
-const ApiRequest = require("./functions");
+const { apiRequest, cookieParser } = require("./functions");
 const app = express();
 app.use(express.json());
 app.use(
@@ -40,12 +40,11 @@ app.post("/login", async ({ body: { username, password } }, res) => {
   if (user) {
     bycrypt.compare(password, user.password, async (err, result) => {
       if (result) {
-        res.send(
-          Response.success(
-            { token: user.password, logged_in: true },
-            "login successfull"
-          )
+        res.setHeader(
+          "Set-Cookie",
+          `token=${user.password}; HttpOnly; max-age=${60 * 60}` // max-age = value in seconds
         );
+        res.send(Response.success({ logged_in: true }, "login successfull"));
       } else {
         res.send(Response.error("incorrect username or password"));
       }
@@ -55,16 +54,22 @@ app.post("/login", async ({ body: { username, password } }, res) => {
   }
 });
 
+app.get("/logout", (req, res) => {
+  res.clearCookie("token");
+  res.send(Response.success({ logged_in: false }, "logout succesfully"));
+});
+
 ///// check user is login
-app.post("/check_login", async ({ body: { token } }, res) => {
-  if (!(token || "").trim()) {
+app.post("/check_login", async ({ headers: { cookie } }, res) => {
+  const parsedCookie = cookieParser(cookie);
+  if (!(parsedCookie && parsedCookie.token)) {
     res.send(Response.error("please login to your account"));
     return;
   }
   await client.connect();
   const db = client.db("newdb");
   const UsersCollection = db.collection("users");
-  const user = await UsersCollection.findOne({ password: token });
+  const user = await UsersCollection.findOne({ password: parsedCookie.token });
   client.close();
   if (user) {
     res.send(Response.error("you're logged in before", { logged_in: true }));
@@ -138,9 +143,9 @@ app.get("/get_location", (body, res) => {
 ///// get covid 19 cases
 
 app.post("/get_cases", async ({ body: { days } }, res) => {
-  const all = await ApiRequest.do(COVID_19_ALL_API);
-  const countries = await ApiRequest.do(COVID_19_ALL_COUNTRIES_API);
-  const lastdays = await ApiRequest.do(COVID_19_LAST_DAYS_API + days);
+  const all = await apiRequest.send(COVID_19_ALL_API);
+  const countries = await apiRequest.send(COVID_19_ALL_COUNTRIES_API);
+  const lastdays = await apiRequest.send(COVID_19_LAST_DAYS_API + days);
   if ((all && countries, lastdays)) {
     res.send(
       Response.success(
