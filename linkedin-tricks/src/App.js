@@ -21,6 +21,7 @@ import { ReplaceAll } from "./Components/ReplaceAll/ReplaceAll";
 import { ResizeObserverContainer } from "./Components/ResizeObserver/ResizeObserver";
 import { SimpleSwitch } from "./Components/SimpleSwitch/SimpleSwitch";
 import { Socket } from "./Components/Socket/Socket";
+import { TicTacToe } from "./Components/TicTacToe/TicTacToe";
 import { UglyNumber } from "./Components/UglyNumber/UglyNumber";
 import { UserLocation } from "./Components/UserLocation/UserLocation";
 import { WebCam } from "./Components/WebCam/WebCam";
@@ -100,8 +101,11 @@ function App() {
           <div className="col-12 col-md-6 col-lg-4 bordered">
             <WebCam />
           </div>
-          <div className="col-12 col-md-6 col-lg-4 bordered">
-            <p>empty space</p>
+          <div
+            className="col-12 col-md-6 col-lg-4 bordered"
+            style={{ display: "flex", flexDirection: "column" }}
+          >
+            <TicTacToe />
           </div>
           <div className="col-12 col-md-12 col-lg-12 bordered">
             <Covid19Cases />

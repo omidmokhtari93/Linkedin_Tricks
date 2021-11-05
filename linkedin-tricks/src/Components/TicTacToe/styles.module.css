@@ -1,0 +1,67 @@
+.ticTacToeContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.ticTacToe {
+    display: flex;
+    flex-wrap: wrap;
+    width: 210px;
+    height: 210px;
+}
+
+.ticTacToeBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid darkgray;
+    max-width: 70px;
+    max-height: 70px;
+    min-width: 70px;
+    min-height: 70px;
+    cursor: pointer;
+}
+
+.ticTacToeBox:nth-child(1) {
+    border-left: 0;
+    border-top: 0;
+}
+.ticTacToeBox:nth-child(2) {
+    border-top: 0;
+}
+.ticTacToeBox:nth-child(3) {
+    border-right: 0;
+    border-top: 0;
+}
+.ticTacToeBox:nth-child(4) {
+    border-left: 0;
+}
+.ticTacToeBox:nth-child(6) {
+    border-right: 0;
+}
+.ticTacToeBox:nth-child(7) {
+    border-left: 0;
+    border-bottom: 0;
+}
+.ticTacToeBox:nth-child(8) {
+    border-bottom: 0;
+}
+.ticTacToeBox:nth-child(9) {
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.O_player {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    border: 6px solid rgb(75, 75, 75);
+}
+
+.X_player {
+    font-size: 70px;
+    font-weight: 800;
+    color: rgb(75, 75, 75);
+}
