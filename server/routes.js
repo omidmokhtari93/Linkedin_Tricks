@@ -1,4 +1,4 @@
-exports.REST_COUTRIES_API = "https://restcountries.eu/rest/v2/name/";
+exports.REST_COUTRIES_API = "https://restcountries.com/v3.1/name/";
 exports.MOZILLA_LOCATION_API =
   "https://location.services.mozilla.com/v1/geolocate?key=test";
 
