@@ -43,8 +43,8 @@ export const winnerChecker = (playerArray) => {
   if (checkoIndexes) {
     return "O";
   }
-  const arr = playerArray.join("");
-  if (!arr.includes("0")) {
+  const arr = [...xMovesIndex, ...oMovesIndex];
+  if (arr.length == 9) {
     return "Game Over";
   }
   return "";

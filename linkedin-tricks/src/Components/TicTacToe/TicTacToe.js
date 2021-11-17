@@ -27,19 +27,14 @@ export const TicTacToe = () => {
       }
     }
     const winner = winnerChecker(updatedPlayerArray);
-    if (winner == "X") {
-      setWinner("X");
-      resetGame();
-    }
-    if (winner == "O") {
-      setWinner("O");
-      resetGame();
-    }
+    setWinner(winner);
+    console.log(winner);
   };
 
   const resetGame = () => {
     setPlayerArray([...new Array(9)]);
     setPlayer("X");
+    setWinner("");
   };
 
   return (
@@ -56,15 +51,31 @@ export const TicTacToe = () => {
           Reset
         </a>
       </div>
-      {winner && (
+      {/* {winner && (
         <div className="text-center text-danger">{winner} is winner</div>
-      )}
+      )} */}
       <div className={styles.ticTacToeContainer}>
         <div className={styles.ticTacToe}>
+          {
+            <div
+              className={
+                styles.ticTacToeGameResult +
+                " " +
+                (winner ? styles.ticTacToeGameResultFinished : null)
+              }
+            >
+              {winner
+                ? `${winner} ${winner !== "Game Over" ? "is winner" : ""}`
+                : ""}
+            </div>
+          }
           {playerArray.map((x, index) => (
             <div
               key={index}
-              className={styles.ticTacToeBox}
+              className={
+                styles.ticTacToeBox +
+                ` ${winner ? styles.ticTacToeBoxFinished : null}`
+              }
               onClick={() => onclickBox(index)}
             >
               {playerArray[index] == "X"
@@ -74,14 +85,6 @@ export const TicTacToe = () => {
                 : null}
             </div>
           ))}
-          {/* <div className={styles.ticTacToeBox}></div>
-          <div className={styles.ticTacToeBox}></div>
-          <div className={styles.ticTacToeBox}></div>
-          <div className={styles.ticTacToeBox}></div>
-          <div className={styles.ticTacToeBox}></div>
-          <div className={styles.ticTacToeBox}></div>
-          <div className={styles.ticTacToeBox}></div>
-          <div className={styles.ticTacToeBox}></div> */}
         </div>
       </div>
     </React.Fragment>

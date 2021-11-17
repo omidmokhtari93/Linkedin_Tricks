@@ -12,6 +12,21 @@
     height: 210px;
 }
 
+.ticTacToeGameResult {
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    font-weight: 800;
+    color: rgb(55, 101, 255);
+}
+
+.ticTacToeGameResultFinished {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
 .ticTacToeBox {
     display: flex;
     align-items: center;
@@ -22,33 +37,38 @@
     min-width: 70px;
     min-height: 70px;
     cursor: pointer;
+    position: relative;
 }
 
-.ticTacToeBox:nth-child(1) {
-    border-left: 0;
-    border-top: 0;
+.ticTacToeBoxFinished {
+    filter: blur(9px);
 }
+
 .ticTacToeBox:nth-child(2) {
+    border-left: 0;
     border-top: 0;
 }
 .ticTacToeBox:nth-child(3) {
-    border-right: 0;
     border-top: 0;
 }
 .ticTacToeBox:nth-child(4) {
-    border-left: 0;
-}
-.ticTacToeBox:nth-child(6) {
     border-right: 0;
+    border-top: 0;
+}
+.ticTacToeBox:nth-child(5) {
+    border-left: 0;
 }
 .ticTacToeBox:nth-child(7) {
-    border-left: 0;
-    border-bottom: 0;
+    border-right: 0;
 }
 .ticTacToeBox:nth-child(8) {
+    border-left: 0;
     border-bottom: 0;
 }
 .ticTacToeBox:nth-child(9) {
+    border-bottom: 0;
+}
+.ticTacToeBox:nth-child(10) {
     border-right: 0;
     border-bottom: 0;
 }
