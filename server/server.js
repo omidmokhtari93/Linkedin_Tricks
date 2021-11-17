@@ -146,7 +146,7 @@ app.post("/get_cases", async ({ body: { days } }, res) => {
   const all = await apiRequest.send(COVID_19_ALL_API);
   const countries = await apiRequest.send(COVID_19_ALL_COUNTRIES_API);
   const lastdays = await apiRequest.send(COVID_19_LAST_DAYS_API + days);
-  if ((all && countries, lastdays)) {
+  if (all && countries && lastdays) {
     res.send(
       Response.success(
         {
