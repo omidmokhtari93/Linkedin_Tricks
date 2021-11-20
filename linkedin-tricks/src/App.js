@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import * as funcs from "./Components/xshared/SharedFunctions";
 import { AbortFetchRequest } from "./Components/AbortFetchRequest/AbortFetchRequest";
 import { AllObjectMethods } from "./Components/AllObjectMethods/AllObjectMethods";
 import { CallNodeServer } from "./Components/CallNodeServer/CallNodeServer";
@@ -11,6 +12,7 @@ import { Covid19Cases } from "./Components/Covid19Cases/Covid19Cases";
 import { DistructorNestedObjects } from "./Components/DistructorNestedObjects/DistructorNestedObjects";
 import { GoogleMap } from "./Components/GoogleMap/GoogleMap";
 import { HOCExample } from "./Components/HigherOrderComponent/Example";
+import { ImageLoading } from "./Components/ImageLoading/ImageLoading";
 import { LinkSpeed } from "./Components/LinkSpeed/LinkSpeed";
 import { Login } from "./Components/Login/Login";
 import { MinAndMax } from "./Components/MinAndMax/MinAndMax";
@@ -26,6 +28,7 @@ import { TicTacToe } from "./Components/TicTacToe/TicTacToe";
 import { UglyNumber } from "./Components/UglyNumber/UglyNumber";
 import { UserLocation } from "./Components/UserLocation/UserLocation";
 import { WebCam } from "./Components/WebCam/WebCam";
+import { YourMonitorSize } from "./Components/YourMonitorSize/YouMonitorSize";
 
 function App() {
   return (
@@ -113,6 +116,15 @@ function App() {
           </div>
           <div className="col-12 col-md-6 col-lg-4 bordered">
             <ColorPicker />
+          </div>
+          <div className="col-12 col-md-6 col-lg-4 bordered">
+            <ImageLoading />
+          </div>
+          <div className="col-12 col-md-6 col-lg-4 bordered">
+            <YourMonitorSize />
+          </div>
+          <div className="col-12 col-md-6 col-lg-4 bordered">
+            
           </div>
         </div>
         <div className="text-center pt-4">developed by ❤️</div>
