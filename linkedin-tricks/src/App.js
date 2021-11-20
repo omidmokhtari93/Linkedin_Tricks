@@ -4,6 +4,7 @@ import { AbortFetchRequest } from "./Components/AbortFetchRequest/AbortFetchRequ
 import { AllObjectMethods } from "./Components/AllObjectMethods/AllObjectMethods";
 import { CallNodeServer } from "./Components/CallNodeServer/CallNodeServer";
 import { Capitalize } from "./Components/Capitalize/Capitalize";
+import { ColorPicker } from "./Components/ColorPicker/ColorPicker";
 import { ConnectionChecking } from "./Components/ConnetionChecking/ConnectionChecking";
 import { ConvertToInt } from "./Components/ConvertToInt/ConvertToInt";
 import { Covid19Cases } from "./Components/Covid19Cases/Covid19Cases";
@@ -109,6 +110,9 @@ function App() {
           </div>
           <div className="col-12 col-md-12 col-lg-12 bordered">
             <Covid19Cases />
+          </div>
+          <div className="col-12 col-md-6 col-lg-4 bordered">
+            <ColorPicker />
           </div>
         </div>
         <div className="text-center pt-4">developed by ❤️</div>
