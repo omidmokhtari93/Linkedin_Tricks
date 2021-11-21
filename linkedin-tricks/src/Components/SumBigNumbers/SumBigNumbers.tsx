@@ -1,19 +1,11 @@
 import React, { useState } from "react";
+import { comma, reverseString } from "../xshared/SharedFunctions";
 
 const splitReverseNumber = (x: string) =>
   x
     .split("")
     .reverse()
     .map((x) => +x);
-
-const numberWithCommas = (x: string) => {
-  return x
-    .split("")
-    .reverse()
-    .join("")
-    .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-};
 
 export const SumBigNumbers = () => {
   const [numberOne, setNumberOne] = useState("");
@@ -33,7 +25,7 @@ export const SumBigNumbers = () => {
     numberOneArr.map((x, index) => {
       let sum = x + (numberTwoArr[index] || 0) + carry;
       if (sum >= 10) {
-        result += (sum % 10).toString();
+        result += sum % 10;
         carry = 1;
       } else {
         result += sum;
@@ -44,7 +36,7 @@ export const SumBigNumbers = () => {
         carry = 0;
       }
     });
-    setResult(numberWithCommas(result));
+    setResult(comma(reverseString(result)));
   };
 
   return (

@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import * as funcs from "./Components/xshared/SharedFunctions";
 import { AbortFetchRequest } from "./Components/AbortFetchRequest/AbortFetchRequest";
 import { AllObjectMethods } from "./Components/AllObjectMethods/AllObjectMethods";
 import { CallNodeServer } from "./Components/CallNodeServer/CallNodeServer";
