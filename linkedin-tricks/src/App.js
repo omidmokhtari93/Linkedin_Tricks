@@ -29,6 +29,7 @@ import { UglyNumber } from "./Components/UglyNumber/UglyNumber";
 import { UserLocation } from "./Components/UserLocation/UserLocation";
 import { WebCam } from "./Components/WebCam/WebCam";
 import { YourMonitorSize } from "./Components/YourMonitorSize/YouMonitorSize";
+import { SumBigNumbers } from "./Components/SumBigNumbers/SumBigNumbers";
 
 function App() {
   return (
@@ -124,7 +125,7 @@ function App() {
             <YourMonitorSize />
           </div>
           <div className="col-12 col-md-6 col-lg-4 bordered">
-            
+            <SumBigNumbers />
           </div>
         </div>
         <div className="text-center pt-4">developed by ❤️</div>
