@@ -10,14 +10,7 @@ export const ColorPicker = (props: colorPickerType): ReactElement => {
       <hr />
       <code>choose a color to see the result : </code>
       <br />
-      <input
-        type="color"
-        onChange={(e) => {
-          console.log(e);
-
-          setColor(e.target.value);
-        }}
-      />
+      <input type="color" onChange={(e) => setColor(e.target.value)} />
       <br />
       <div className="text-center">
         <b style={{ color: color }} className="bolder">
