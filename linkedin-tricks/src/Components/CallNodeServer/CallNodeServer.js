@@ -60,7 +60,7 @@ export const CallNodeServer = () => {
           result.map((x) => (
             <li key={x.name}>
               <img src={x.flag} style={{ width: "25px", height: "auto" }} />{" "}
-              {x.name}
+              {x.name} ({x.unicodeFlag})
             </li>
           ))
         ) : (
