@@ -18,6 +18,7 @@ const {
   COVID_19_ALL_API,
   COVID_19_ALL_COUNTRIES_API,
   COVID_19_LAST_DAYS_API,
+  REST_COUTRIESNOW_API,
 } = require("./routes");
 const url = "mongodb://127.0.0.1:27017";
 const client = new MongoClient(url);
@@ -118,14 +119,28 @@ app.post("/set_user", async ({ body: { name, age } }, res) => {
 
 ///// filter countries by external api
 app.post("/countries", ({ body: { country } }, res) => {
-  request(
-    {
-      uri: REST_COUTRIES_API + country,
-    },
-    function (error, response, body) {
-      res.send(body);
-    }
-  );
+  if (!country.trim()) {
+    res.send(Response.error("please fill country"));
+  } else {
+    request(
+      {
+        url: REST_COUTRIESNOW_API,
+      },
+      function (error, response, body) {
+        const parsed = JSON.parse(body);
+        if (parsed?.data) {
+          res.send({
+            ...parsed,
+            data: parsed.data.filter((x) => {
+              return x.name.toLowerCase().includes(country.toLowerCase());
+            }),
+          });
+        } else {
+          res.send(Response.error("no data founded"));
+        }
+      }
+    );
+  }
 });
 
 ////get user location
@@ -133,6 +148,7 @@ app.get("/get_location", (body, res) => {
   request(
     {
       uri: MOZILLA_LOCATION_API,
+      method: "GET",
     },
     function (err, response, body) {
       res.send(body);

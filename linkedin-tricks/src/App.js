@@ -30,6 +30,7 @@ import { WebCam } from "./Components/WebCam/WebCam";
 import { YourMonitorSize } from "./Components/YourMonitorSize/YouMonitorSize";
 import { SumBigNumbers } from "./Components/SumBigNumbers/SumBigNumbers";
 import { Symbols } from "./Components/Symbols/Symbols";
+import { ObjectKeyChecker } from "./Components/ObjectKeyChecker/ObjectKeyChecker";
 
 function App() {
   return (
@@ -129,6 +130,9 @@ function App() {
           </div>
           <div className="col-12 col-md-6 col-lg-4 bordered">
             <Symbols />
+          </div>
+          <div className="col-12 col-md-6 col-lg-4 bordered">
+            <ObjectKeyChecker />
           </div>
         </div>
         <div className="text-center pt-4">developed by ❤️</div>

@@ -18,11 +18,11 @@ export const CallNodeServer = () => {
   const fetchCountries = () => {
     setLoading(true);
     APICall.post(COUNTRIES_ROUTE, { country: country }, (err, res) => {
-      if (res) {
+      if (res?.data) {
         setLoading(false);
-        setResult(res);
+        setResult(res.data);
       }
-      if (err) {
+      if (res?.data && !res?.data?.length) {
         setResult({ message: "Not found" });
         setLoading(false);
       }
