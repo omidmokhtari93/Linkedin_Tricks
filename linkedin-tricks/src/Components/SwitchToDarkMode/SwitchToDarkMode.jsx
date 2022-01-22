@@ -16,7 +16,10 @@ export const SwitchToDarkMode = () => {
   return (
     <React.Fragment>
       <p>Switch To Dark Mode</p>
-
+      <hr />
+      <code>switch body color to dark : </code>
+      <br />
+      <br />
       <button onClick={changeMode}>{filter ? "Light" : "Dark"} Mode</button>
     </React.Fragment>
   );
