@@ -13,11 +13,9 @@ export const AllObjectMethods = () => {
         {"array.map(x => x == 2 ? x * 2 : x)"} {"=>"}{" "}
         {JSON.stringify(array.map((x) => (x == 2 ? x * 2 : x)))}
         <br />
-        //* check you condition on each element of array and return true or false
         {"array.every(x => x >= 0) => "}
         {JSON.stringify(array.every((x) => x >= 0))}
         <br />
-        //* concat used for merge multiple array
         {"array.concat([7, 8, 9]) => "}
         {JSON.stringify(array.concat([7, 8, 9]))}
         <br />
