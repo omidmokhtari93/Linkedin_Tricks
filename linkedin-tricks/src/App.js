@@ -32,6 +32,7 @@ import { SumBigNumbers } from "./Components/SumBigNumbers/SumBigNumbers";
 import { Symbols } from "./Components/Symbols/Symbols";
 import { ObjectKeyChecker } from "./Components/ObjectKeyChecker/ObjectKeyChecker";
 import { SwitchToDarkMode } from "./Components/SwitchToDarkMode/SwitchToDarkMode";
+import { Closures } from "./Components/Closures/Closures";
 
 function App() {
   return (
@@ -137,6 +138,9 @@ function App() {
           </div>
           <div className="col-12 col-md-6 col-lg-4 bordered">
             <SwitchToDarkMode />
+          </div>
+          <div className="col-12 col-md-6 col-lg-4 bordered">
+            <Closures />
           </div>
         </div>
         <div className="text-center pt-4">developed by ❤️</div>
