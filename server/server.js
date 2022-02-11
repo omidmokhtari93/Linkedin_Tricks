@@ -197,4 +197,8 @@ app.get("/events", function (request, response, next) {
     )}\n\n`;
     response.write(data);
   }, 1000);
+
+  request.on("close", () => {
+    console.log("close");
+  });
 });

@@ -4,7 +4,7 @@ export const EventSourceSample = () => {
   const [data, setData] = useState("");
 
   useEffect(() => {
-    const source = new EventSource("/events");
+    const source = new EventSource("http://localhost:5000/events");
     source.onmessage = (event) => {
       setData(JSON.parse(event.data));
     };
@@ -14,7 +14,7 @@ export const EventSourceSample = () => {
     <React.Fragment>
       <p>Event Source Sample</p>
       <hr />
-      <code>Sever side time and date with EventSource</code>
+      <code>Server side time with EventSource</code>
       <br />
       {data}
     </React.Fragment>
