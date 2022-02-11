@@ -3,6 +3,7 @@ const express = require("express");
 const request = require("request");
 const bycrypt = require("bcrypt");
 const { apiRequest, cookieParser } = require("./functions");
+const cors = require("cors");
 const app = express();
 app.use(express.json());
 app.use(
@@ -10,6 +11,7 @@ app.use(
     extended: true,
   })
 );
+app.use(cors());
 
 const MongoClient = require("mongodb").MongoClient;
 const {
@@ -176,4 +178,23 @@ app.post("/get_cases", async ({ body: { days } }, res) => {
   } else {
     res.send(Response.error("error in api calls"));
   }
+});
+
+app.get("/events", function (request, response, next) {
+  const headers = {
+    "Content-Type": "text/event-stream",
+    Connection: "keep-alive",
+    "Cache-Control": "no-cache",
+  };
+  response.writeHead(200, headers);
+  setInterval(() => {
+    const d = new Date();
+    d.getHours();
+    d.getMinutes();
+    d.getSeconds();
+    const data = `data: ${JSON.stringify(
+      d.getHours() + " : " + d.getMinutes() + " : " + d.getSeconds()
+    )}\n\n`;
+    response.write(data);
+  }, 1000);
 });
