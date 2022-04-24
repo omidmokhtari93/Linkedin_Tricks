@@ -34,6 +34,7 @@ import { ObjectKeyChecker } from "./Components/ObjectKeyChecker/ObjectKeyChecker
 import { SwitchToDarkMode } from "./Components/SwitchToDarkMode/SwitchToDarkMode";
 import { Closures } from "./Components/Closures/Closures";
 import { EventSourceSample } from "./Components/EventSource/EventSource";
+import { DateTime } from "./Components/DateTime/DateTime";
 
 function App() {
   return (
@@ -145,6 +146,9 @@ function App() {
           </div>
           <div className="col-12 col-md-6 col-lg-4 bordered">
             <EventSourceSample />
+          </div>
+          <div className="col-12 col-md-6 col-lg-4 bordered">
+            <DateTime />
           </div>
         </div>
         <div className="text-center pt-4">developed by ❤️</div>
